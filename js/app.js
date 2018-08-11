@@ -25,8 +25,8 @@ Enemy.prototype.render = function() {
 // Creates player class and draws player on the screen
 class Player {
   constructor () {
-    this.x = 207;
-    this.y = 400;
+    this.x = 205;
+    this.y = 405;
     this.sprite = 'images/char-pink-girl.png';
   }
   render(){
@@ -41,32 +41,45 @@ class Player {
         }
         break;
       case 'down' :
-        if (this.y < 400) {
+        if (this.y < 405) {
           this.y += 83;
         }
         break;
       case 'left' :
         if (this.x > 50) {
-          this.x -= 101;
+          this.x -= 100;
         }
         break;
       case 'right' :
         if (this.x < 405) {
-          this.x += 101;
+          this.x += 100;
         }
         break;
     }
   }
-  update()
+  reset() {
+    this.y = 405;
+    this.x = 205;
+  }
+
+  update(){
+    for (let enemy of allEnemies) {
+      //This code sourced from Matthew Cranford walkthrough and adapted for the rest of the project code. Code test for collision and resets the game if there is a collision.
+      if (this.y === enemy.y && (enemy.x + 30 > this.x && enemy.x -30 < this.x)) {
+        this.reset();
+      }
+    }
+
+}
 }
 
 
 // Creates player and enemies and places them at different places on the board
-const enemy1 = new Enemy(10, 55, 150);
-const enemy2 = new Enemy(101, 135, 100);
-const enemy3 = new Enemy(303, 135, 200);
-const enemy4 = new Enemy(10, 230, 150);
-const enemy5 = new Enemy(400, 230, 200);
+const enemy1 = new Enemy(05, 73, 150);
+const enemy2 = new Enemy(105, 156, 50);
+const enemy3 = new Enemy(305, 156, 200);
+const enemy4 = new Enemy(05, 239, 100);
+const enemy5 = new Enemy(405, 239, 200);
 let allEnemies =[enemy1, enemy2, enemy3, enemy4, enemy5];
 let player = new Player();
 
