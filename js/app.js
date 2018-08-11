@@ -1,8 +1,8 @@
-// Enemies our player must avoid
-var Enemy = function() {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-
+// Creaties enemy class and allows for them to be drawn on screen
+const Enemy = function(x,y,speed) {
+    this.x = x;
+    this.y = y;
+    this.speed = speed;
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
@@ -11,19 +11,18 @@ var Enemy = function() {
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
+   if (this.x < 495) {
+     this.x += this.speed * dt;
+   } else {
+     this.x = 0;
+   }
 };
 
-// Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
+// Creates player class and draws player on the screen
 class Player {
   constructor () {
     this.x = 207;
@@ -33,6 +32,7 @@ class Player {
   render(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
+  //Moves player based on the arrow keystroke input
   handleInput(direction){
     switch(direction) {
       case 'up' :
@@ -57,17 +57,17 @@ class Player {
         break;
     }
   }
+  update()
 }
 
 
-// Now instantiate your objects.
-const enemy1 = new Enemy();
-const enemy2 = new Enemy();
-const enemy3 = new Enemy();
-const enemy4 = new Enemy();
-const enemy5 = new Enemy();
-const enemy6 = new Enemy();
-let allEnemies =[enemy1, enemy2, enemy3, enemy4, enemy5, enemy6];
+// Creates player and enemies and places them at different places on the board
+const enemy1 = new Enemy(10, 55, 150);
+const enemy2 = new Enemy(101, 135, 100);
+const enemy3 = new Enemy(303, 135, 200);
+const enemy4 = new Enemy(10, 230, 150);
+const enemy5 = new Enemy(400, 230, 200);
+let allEnemies =[enemy1, enemy2, enemy3, enemy4, enemy5];
 let player = new Player();
 
 
