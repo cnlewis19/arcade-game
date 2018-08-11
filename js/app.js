@@ -36,7 +36,7 @@ class Player {
   handleInput(direction){
     switch(direction) {
       case 'up' :
-        if (this.y > 0) {
+        if (this.y > -11) {
           this.y -= 83;
         }
         break;
@@ -64,13 +64,17 @@ class Player {
 
   update(){
     for (let enemy of allEnemies) {
-      //This code sourced from Matthew Cranford walkthrough and adapted for the rest of the project code. Code test for collision and resets the game if there is a collision.
+      //This code sourced from Matthew Cranford project walkthrough and adapted for the rest of the project code. Code test for collision and resets the game if there is a collision.
       if (this.y === enemy.y && (enemy.x + 30 > this.x && enemy.x -30 < this.x)) {
         this.reset();
       }
     }
-
-}
+    if (this.y === -10) {
+      this.y -= 10;
+      alert('You win!');
+      this.reset();
+    }
+  }
 }
 
 
