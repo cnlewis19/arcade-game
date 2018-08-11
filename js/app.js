@@ -33,6 +33,23 @@ class Player {
   render(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
+  handleInput(direction){
+    switch(direction) {
+      case 'up' :
+        this.y -= 83;
+        break;
+      case 'down' :
+        this.y += 83;
+        break;
+      case 'left' :
+        this.x -= 101;
+        break;
+      case 'right' :
+        this.x += 101;
+        break;
+    }
+
+  }
 }
 
 
