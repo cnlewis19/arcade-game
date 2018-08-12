@@ -1,6 +1,29 @@
-frontend-nanodegree-arcade-game
-===============================
+# Arcade Game Project
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+## Table of Contents
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+* [Instructions](#instructions)
+* [Contributing](#contributing)
+* [License](#license)
+* [Acknowledgements](#acknowledgements)
+
+## Instructions
+
+This game requires JavaScript to run. In order to run the game, load it in a web browser.
+
+The goal of the game is to get your player from the grass to the water without hitting any enemy bugs. You can use the arrow keys to move your player around. If you collide with a bug, the game will reset back to the beginning. When you reach the water, you win the game!
+
+## Contributing
+
+As this is being submitted for a class project, pull requests will most likely not be accepted.
+
+## License
+This project is licensed under GNU GPLv3.
+
+## Acknowledgements
+The following resources were extremely helpful in building this project.
+Arcade Game Walkthrough Part 2- Pseudo Code by [Matthew Cranford](https://matthewcranford.com/arcade-game-walkthrough-part-2-pseudo-code/).
+Udacity starter code
+
+Code for the collisions sourced from:
+Arcade Game Walkthrough Part 6- Collisions, Win Conditions and Game Resets [Matthew Cranford](https://matthewcranford.com/arcade-game-walkthrough-part-6-collisions-win-conditions-and-game-resets/)
