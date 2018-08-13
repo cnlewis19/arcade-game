@@ -9,7 +9,7 @@
 
 ## Instructions
 
-This game requires JavaScript to run. In order to run the game, load it in a web browser.
+This game requires JavaScript to run. In order to run the game, load the index.html file in a web browser.
 
 The goal of the game is to get your player from the grass to the water without hitting any enemy bugs. You can use the arrow keys to move your player around. If you collide with a bug, the game will reset back to the beginning. When you reach the water, you win the game!
 
