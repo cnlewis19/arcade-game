@@ -1,38 +1,36 @@
-// Creaties enemy class and allows for them to be drawn on screen
+// Creaties enemy class and allows for them to be drawn on screen. Enemies are created later on in this file using the function below.
 const Enemy = function(x,y,speed) {
     this.x = x;
     this.y = y;
     this.speed = speed;
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
 };
 
-// Update the enemy's position, required method for game
-// Parameter: dt, a time delta between ticks
+//Has enemy move across screen and once off screen restart from the other side of the screen. The -100 means that the enemy will come in from off screen.
 Enemy.prototype.update = function(dt) {
    if (this.x < 495) {
      this.x += this.speed * dt;
    } else {
-     this.x = 0;
+     this.x = -100;
    }
 };
-
+//Draws enemy based on specified x and y.
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-// Creates player class and draws player on the screen
+// Creates player class and specifies the pink girl to start at the middle/bottom of screen and draws player on the screen
 class Player {
   constructor () {
     this.x = 205;
     this.y = 405;
     this.sprite = 'images/char-pink-girl.png';
   }
+  //Draws girl on screen based on place
   render(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
-  //Moves player based on the arrow keystroke input
+  //Moves player based on the arrow keystroke input, moves one box per key.
   handleInput(direction){
     switch(direction) {
       case 'up' :
@@ -57,15 +55,16 @@ class Player {
         break;
     }
   }
+  //Function for resetting the game, called when collision occurs or game is won.
   reset() {
     this.y = 405;
     this.x = 205;
   }
-
+  //Update checks for collisions and checks if the game is won. If collision happens then the game is reset. If player wins, an alert is shown and game is reset.
   update(){
     for (let enemy of allEnemies) {
       //This code sourced from Matthew Cranford project walkthrough and adapted for the rest of the project code. Code test for collision and resets the game if there is a collision.
-      if (this.y === enemy.y && (enemy.x + 30 > this.x && enemy.x -30 < this.x)) {
+      if (this.y === enemy.y && (enemy.x + 50 > this.x && enemy.x -50 < this.x)) {
         this.reset();
       }
     }
@@ -84,8 +83,8 @@ const enemy2 = new Enemy(105, 156, 50);
 const enemy3 = new Enemy(305, 156, 200);
 const enemy4 = new Enemy(05, 239, 100);
 const enemy5 = new Enemy(405, 239, 200);
-let allEnemies =[enemy1, enemy2, enemy3, enemy4, enemy5];
-let player = new Player();
+const allEnemies =[enemy1, enemy2, enemy3, enemy4, enemy5];
+const player = new Player();
 
 
 
